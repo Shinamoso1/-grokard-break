@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グロカード / ブレイク値</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                 "Noto Sans JP", Arial, sans-serif;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 22px 80px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .section {
+    margin-bottom: 38px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 21px;
+    line-height: 1.45;
+  }
+
+  .item-name {
+    min-width: 168px;
+  }
+
+  .item-value {
+    white-space: nowrap;
+  }
+
+  /* 防具の4段階カウンター */
+  .armor-item {
+    display: flex;
+    align-items: center;
+    min-height: 54px;
+    font-size: 21px;
+    gap: 12px;
+  }
+
+  .armor-name {
+    flex: 1;
+  }
+
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .counter button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #555;
+    border-radius: 50%;
+    background: #151515;
+    color: #fff;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .counter button:active {
+    background: #333;
+  }
+
+  .count {
+    width: 30px;
+    text-align: center;
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .armor-total {
+    min-width: 58px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .total-box {
+    position: sticky;
+    bottom: 12px;
+    margin-top: 30px;
+    padding: 14px 18px;
+    background: rgba(20,20,20,.95);
+    border: 1px solid #444;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+  }
+
+  .total-label {
+    font-size: 17px;
+    color: #bbb;
+  }
+
+  .total {
+    font-size: 30px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .reset {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  @media (max-width: 430px) {
+    .wrap { padding: 22px 18px 75px; }
+    h1 { font-size: 28px; }
+    .section-title { font-size: 21px; }
+    .item, .armor-item { font-size: 20px; }
+    .item-name { min-width: 155px; }
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <h1>グロカード / ブレイク値</h1>
+
+  <section class="section">
+    <h2 class="section-title">防具</h2>
+
+    <div class="armor-item" data-value="59">
+      <span class="armor-name">ルーロン</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+
+    <div class="armor-item" data-value="81">
+      <span class="armor-name">もさもさ</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+
+    <div class="armor-item" data-value="124">
+      <span class="armor-name">かまいたち</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+
+    <div class="armor-item" data-value="143">
+      <span class="armor-name">天狗ラクーム</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+
+    <div class="armor-item" data-value="151">
+      <span class="armor-name">ざしこ</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+
+    <div class="armor-item" data-value="180">
+      <span class="armor-name">ミレイル</span>
+      <div class="counter">
+        <button class="minus" aria-label="減らす">−</button>
+        <span class="count">0</span>
+        <button class="plus" aria-label="増やす">＋</button>
+      </div>
+      <span class="armor-total">0</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">武器</h2>
+    <div class="item"><span class="item-name">レムルス</span><span class="item-value">150　スキル+175</span></div>
+    <div class="item"><span class="item-name">スズ</span><span class="item-value">200　スキル+200</span></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">腕</h2>
+    <div class="item"><span class="item-name">童子切</span><span class="item-value">120　スキル+100</span></div>
+    <div class="item"><span class="item-name">アイリス</span><span class="item-value">180　スキル+180</span></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">装飾品</h2>
+    <div class="item"><span class="item-name">チェ、コダマ</span><span class="item-value">98</span></div>
+    <div class="item"><span class="item-name">ファルナ</span><span class="item-value">124</span></div>
+    <div class="item"><span class="item-name">アモロウナグ</span><span class="item-value">152</span></div>
+    <div class="item"><span class="item-name">ヴィオーラ</span><span class="item-value">180</span></div>
+    <div class="item"><span class="item-name">白蔵主</span><span class="item-value">200</span></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">頭</h2>
+    <div class="item"><span class="item-name">リオル</span><span class="item-value">108</span></div>
+    <div class="item"><span class="item-name">ククリ</span><span class="item-value">124</span></div>
+    <div class="item"><span class="item-name">キンナラ</span><span class="item-value">180</span></div>
+    <div class="item"><span class="item-name">鬼切丸</span><span class="item-value">200</span></div>
+  </section>
+
+  <div class="total-box">
+    <span class="total-label">合計ブレイク値</span>
+    <span class="total" id="total">0</span>
+  </div>
+  <button class="reset" id="reset">カウンターをリセット</button>
+</div>
+
+<script>
+  const armorItems = document.querySelectorAll(".armor-item");
+  const totalEl = document.getElementById("total");
+
+  function updateTotal() {
+    let total = 0;
+
+    armorItems.forEach(item => {
+      const value = Number(item.dataset.value);
+      const count = Number(item.querySelector(".count").textContent);
+      const subtotal = value * count;
+
+      item.querySelector(".armor-total").textContent = subtotal;
+      total += subtotal;
+    });
+
+    totalEl.textContent = total.toLocaleString("ja-JP");
+  }
+
+  armorItems.forEach(item => {
+    const countEl = item.querySelector(".count");
+    const plus = item.querySelector(".plus");
+    const minus = item.querySelector(".minus");
+
+    plus.addEventListener("click", () => {
+      let count = Number(countEl.textContent);
+      if (count < 4) count++;
+      countEl.textContent = count;
+      updateTotal();
+    });
+
+    minus.addEventListener("click", () => {
+      let count = Number(countEl.textContent);
+      if (count > 0) count--;
+      countEl.textContent = count;
+      updateTotal();
+    });
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    armorItems.forEach(item => {
+      item.querySelector(".count").textContent = "0";
+    });
+    updateTotal();
+  });
+
+  updateTotal();
+</script>
+</body>
+</html>
