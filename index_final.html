@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>グロカード / ブレイク値</title>
+<style>
+body{margin:0;background:#000;color:#fff;font-family:Arial,"Noto Sans JP",sans-serif}
+main{max-width:700px;margin:auto;padding:24px 18px 100px}
+h1{font-size:28px;margin:0 0 30px}
+section{margin:0 0 30px}
+h2{font-size:21px;font-weight:400;margin:0 0 8px}
+.line{display:flex;align-items:center;min-height:48px;font-size:19px}
+.name{flex:1}
+.value{width:60px;text-align:right}
+.check{width:40px;height:40px;margin-left:10px;background:#111;color:#fff;border:1px solid #555;border-radius:8px;font-size:22px}
+.check.on{background:#fff;color:#000}
+.counter{display:flex;align-items:center;gap:5px}
+.counter button{width:34px;height:34px;border:1px solid #555;border-radius:50%;background:#111;color:#fff;font-size:20px}
+.count{width:24px;text-align:center}
+.total-line{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:calc(100% - 36px);max-width:664px;background:#181818;border:1px solid #555;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between}
+.total-line strong{font-size:26px}
+</style>
+</head>
+<body>
+<main>
+<h1>グロカード / ブレイク値</h1>
+
+<section>
+<h2>防具</h2>
+<div class="line armor" data-value="43"><span class="name">ミーナ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="43"><span class="name">ルイス</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="59"><span class="name">ルーロン</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="81"><span class="name">もさもさ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="124"><span class="name">かまいたち</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="143"><span class="name">天狗ラクーム</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="151"><span class="name">ざしこ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+<div class="line armor" data-value="180"><span class="name">ミレイユ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="value subtotal">0</span></div>
+</section>
+
+<section>
+<h2>武器</h2>
+<div class="line selectable" data-value="150"><span class="name">レムルス</span><span class="value">150</span><button class="check">○</button></div>
+<div class="line selectable" data-value="175"><span class="name">レムルス スキル</span><span class="value">175</span><button class="check">○</button></div>
+<div class="line selectable" data-value="200"><span class="name">スズ</span><span class="value">200</span><button class="check">○</button></div>
+<div class="line selectable" data-value="200"><span class="name">スズ スキル</span><span class="value">200</span><button class="check">○</button></div>
+</section>
+
+<section>
+<h2>腕</h2>
+<div class="line selectable" data-value="120"><span class="name">童子切</span><span class="value">120</span><button class="check">○</button></div>
+<div class="line selectable" data-value="100"><span class="name">童子切 スキル</span><span class="value">100</span><button class="check">○</button></div>
+<div class="line selectable" data-value="180"><span class="name">アイリス</span><span class="value">180</span><button class="check">○</button></div>
+<div class="line selectable" data-value="180"><span class="name">アイリス スキル</span><span class="value">180</span><button class="check">○</button></div>
+</section>
+
+<section>
+<h2>装飾品</h2>
+<div class="line selectable" data-value="98"><span class="name">チエ</span><span class="value">98</span><button class="check">○</button></div>
+<div class="line selectable" data-value="98"><span class="name">コダマ</span><span class="value">98</span><button class="check">○</button></div>
+<div class="line selectable" data-value="124"><span class="name">ファルナ</span><span class="value">124</span><button class="check">○</button></div>
+<div class="line selectable" data-value="152"><span class="name">アモロウナグ</span><span class="value">152</span><button class="check">○</button></div>
+<div class="line selectable" data-value="180"><span class="name">ヴィオーラ</span><span class="value">180</span><button class="check">○</button></div>
+<div class="line selectable" data-value="200"><span class="name">白蔵主</span><span class="value">200</span><button class="check">○</button></div>
+</section>
+
+<section>
+<h2>頭</h2>
+<div class="line selectable" data-value="108"><span class="name">リオル</span><span class="value">108</span><button class="check">○</button></div>
+<div class="line selectable" data-value="124"><span class="name">ククリ</span><span class="value">124</span><button class="check">○</button></div>
+<div class="line selectable" data-value="180"><span class="name">キンナラ</span><span class="value">180</span><button class="check">○</button></div>
+<div class="line selectable" data-value="200"><span class="name">鬼切丸</span><span class="value">200</span><button class="check">○</button></div>
+</section>
+</main>
+
+<div class="total-line"><span>合計ブレイク値</span><strong id="total">0</strong></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var armor = document.querySelectorAll(".armor");
+  var selectable = document.querySelectorAll(".selectable");
+  var total = document.getElementById("total");
+
+  function calculate(){
+    var sum = 0;
+    armor.forEach(function(item){
+      var n = parseInt(item.querySelector(".count").textContent,10);
+      var v = parseInt(item.getAttribute("data-value"),10);
+      item.querySelector(".subtotal").textContent = n * v;
+      sum += n * v;
+    });
+    selectable.forEach(function(item){
+      if(item.querySelector(".check").classList.contains("on")){
+        sum += parseInt(item.getAttribute("data-value"),10);
+      }
+    });
+    total.textContent = sum;
+  }
+
+  armor.forEach(function(item){
+    var count = item.querySelector(".count");
+    item.querySelector(".plus").addEventListener("click",function(){
+      var n = parseInt(count.textContent,10);
+      if(n < 4){ count.textContent = n + 1; calculate(); }
+    });
+    item.querySelector(".minus").addEventListener("click",function(){
+      var n = parseInt(count.textContent,10);
+      if(n > 0){ count.textContent = n - 1; calculate(); }
+    });
+  });
+
+  selectable.forEach(function(item){
+    item.querySelector(".check").addEventListener("click",function(){
+      this.classList.toggle("on");
+      this.textContent = this.classList.contains("on") ? "✓" : "○";
+      calculate();
+    });
+  });
+
+  calculate();
+});
+</script>
+</body>
+</html>
