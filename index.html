@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>グロカード / ブレイク値</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;touch-action:manipulation}
+body{touch-action:manipulation;overscroll-behavior-x:none}
+body{margin:0;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Noto Sans JP",Arial,sans-serif}
+.wrap{max-width:720px;margin:auto;padding:24px 22px 100px}
+h1{font-size:30px;margin:0 0 34px}
+.section{margin-bottom:38px}
+.section-title{font-size:22px;margin:0 0 12px;font-weight:500}
+.row{display:flex;align-items:center;min-height:46px;font-size:20px;line-height:1.4}
+.name{flex:1}
+.value{width:80px;text-align:right;font-variant-numeric:tabular-nums}
+.check{touch-action:manipulation;-webkit-user-select:none;user-select:none;width:42px;height:42px;border:1px solid #555;border-radius:10px;background:#151515;color:#fff;font-size:23px;cursor:pointer}
+.check.active{background:#fff;color:#000}
+.armor{display:flex;align-items:center;min-height:54px;font-size:20px;gap:8px}
+.armor .name{flex:1}
+.counter{display:flex;align-items:center;gap:6px}
+.counter button{touch-action:manipulation;-webkit-user-select:none;user-select:none;width:36px;height:36px;border:1px solid #555;border-radius:50%;background:#151515;color:#fff;font-size:23px;line-height:1;cursor:pointer}
+.count{width:27px;text-align:center;font-variant-numeric:tabular-nums}
+.subtotal{width:55px;text-align:right;font-variant-numeric:tabular-nums}
+.total-box{position:sticky;bottom:12px;margin-top:30px;padding:14px 18px;background:rgba(20,20,20,.96);border:1px solid #444;border-radius:14px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(8px)}
+.total-label{font-size:17px;color:#bbb}.total{font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+.reset{touch-action:manipulation;-webkit-user-select:none;user-select:none;margin-top:12px;width:100%;padding:12px;border:1px solid #444;border-radius:10px;background:#111;color:#fff;font-size:16px}
+@media(max-width:430px){.wrap{padding:22px 18px 75px}h1{font-size:28px}.section-title{font-size:21px}.row,.armor{font-size:19px}.value{width:65px}.subtotal{width:48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>グロカード / ブレイク値</h1>
+
+<section class="section">
+<h2 class="section-title">防具</h2>
+<div class="armor" data-value="43"><span class="name">ミーナ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="43"><span class="name">ルイス</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="59"><span class="name">ルーロン</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="81"><span class="name">もさもさ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="124"><span class="name">かまいたち</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="143"><span class="name">天狗ラクーム</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="151"><span class="name">ざしこ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="180"><span class="name">ミレイユ</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="211"><span class="name">デゼリアA</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="246"><span class="name">軍神ラクーム</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+<div class="armor" data-value="291"><span class="name">豊穣ラクーム</span><div class="counter"><button class="minus">−</button><span class="count">0</span><button class="plus">＋</button></div><span class="subtotal">0</span></div>
+</section>
+
+<section class="section section-weapon">
+<h2 class="section-title">武器</h2>
+<div class="row" data-value="150"><span class="name">レムルス</span><span class="value">150</span><button class="check">○</button></div>
+<div class="row" data-value="175"><span class="name">レムルス スキル</span><span class="value">+175</span><button class="check">○</button></div>
+<div class="row" data-value="200"><span class="name">スズ</span><span class="value">200</span><button class="check">○</button></div>
+<div class="row" data-value="200"><span class="name">スズ スキル</span><span class="value">+200</span><button class="check">○</button></div>
+<div class="row" data-value="279"><span class="name">スズナ</span><span class="value">279</span><button class="check">○</button></div>
+<div class="row" data-value="230"><span class="name">スズナ スキル</span><span class="value">+230</span><button class="check">○</button></div>
+</section>
+
+<section class="section section-arm">
+<h2 class="section-title">腕</h2>
+<div class="row" data-value="120"><span class="name">童子切</span><span class="value">120</span><button class="check">○</button></div>
+<div class="row" data-value="100"><span class="name">童子切 スキル</span><span class="value">+100</span><button class="check">○</button></div>
+<div class="row" data-value="180"><span class="name">アイリス</span><span class="value">180</span><button class="check">○</button></div>
+<div class="row" data-value="180"><span class="name">アイリス スキル</span><span class="value">+180</span><button class="check">○</button></div>
+<div class="row" data-value="246"><span class="name">デゼリアR</span><span class="value">246</span><button class="check">○</button></div>
+<div class="row" data-value="210"><span class="name">デゼリアR スキル</span><span class="value">+210</span><button class="check">○</button></div>
+<div class="row" data-value="324"><span class="name">ハイラ</span><span class="value">324</span><button class="check">○</button></div>
+<div class="row" data-value="250"><span class="name">ハイラ スキル</span><span class="value">+250</span><button class="check">○</button></div>
+</section>
+
+<section class="section section-accessory">
+<h2 class="section-title">装飾品</h2>
+<div class="row" data-value="98"><span class="name">チエ</span><span class="value">98</span><button class="check">○</button></div>
+<div class="row" data-value="98"><span class="name">コダマ</span><span class="value">98</span><button class="check">○</button></div>
+<div class="row" data-value="124"><span class="name">ファルナ</span><span class="value">124</span><button class="check">○</button></div>
+<div class="row" data-value="152"><span class="name">アモロウナグ</span><span class="value">152</span><button class="check">○</button></div>
+<div class="row" data-value="180"><span class="name">ヴィオーラ</span><span class="value">180</span><button class="check">○</button></div>
+<div class="row" data-value="200"><span class="name">白蔵主</span><span class="value">200</span><button class="check">○</button></div>
+<div class="row" data-value="246"><span class="name">フィオラ・お祭り</span><span class="value">246</span><button class="check">○</button></div>
+<div class="row" data-value="291"><span class="name">花チュンチュン</span><span class="value">291</span><button class="check">○</button></div>
+<div class="row" data-value="324"><span class="name">雷神ラクーム</span><span class="value">324</span><button class="check">○</button></div>
+</section>
+
+<section class="section section-head">
+<h2 class="section-title">頭</h2>
+<div class="row" data-value="108"><span class="name">リオル</span><span class="value">108</span><button class="check">○</button></div>
+<div class="row" data-value="124"><span class="name">ククリ</span><span class="value">124</span><button class="check">○</button></div>
+<div class="row" data-value="180"><span class="name">キンナラ</span><span class="value">180</span><button class="check">○</button></div>
+<div class="row" data-value="200"><span class="name">鬼切丸</span><span class="value">200</span><button class="check">○</button></div>
+<div class="row" data-value="246"><span class="name">ナリータR</span><span class="value">246</span><button class="check">○</button></div>
+<div class="row" data-value="291"><span class="name">葉隠れ術師</span><span class="value">291</span><button class="check">○</button></div>
+<div class="row" data-value="324"><span class="name">鴉神ラクーム</span><span class="value">324</span><button class="check">○</button></div>
+</section>
+
+<div class="total-box"><span class="total-label">合計ブレイク値</span><span class="total" id="total">0</span></div>
+<button class="reset" id="reset">すべてリセット</button>
+</div>
+
+<script>
+document.addEventListener("dblclick",e=>{ if(e.target.closest("button")) e.preventDefault(); },{passive:false});
+const armorItems=document.querySelectorAll(".armor");
+const rows=document.querySelectorAll(".row");
+const totalEl=document.getElementById("total");
+function updateTotal(){
+  let total=0;
+  armorItems.forEach(item=>{
+    const value=Number(item.dataset.value);
+    const count=Number(item.querySelector(".count").textContent);
+    item.querySelector(".subtotal").textContent=(value*count).toLocaleString("ja-JP");
+    total+=value*count;
+  });
+  rows.forEach(row=>{ if(row.querySelector(".check").classList.contains("active")) total+=Number(row.dataset.value); });
+  totalEl.textContent=total.toLocaleString("ja-JP");
+}
+armorItems.forEach(item=>{
+  const count=item.querySelector(".count");
+  item.querySelector(".plus").onclick=()=>{
+    const current=Number(count.textContent);
+    const armorTotal=[...armorItems].reduce((sum,a)=>sum+Number(a.querySelector(".count").textContent),0);
+    if(current>=4 || armorTotal>=16) return;
+    count.textContent=current+1;
+    updateTotal();
+  };
+  item.querySelector(".minus").onclick=()=>{
+    count.textContent=Math.max(0,Number(count.textContent)-1);
+    updateTotal();
+  };
+});
+rows.forEach(row=>{
+  const button=row.querySelector(".check");
+  button.onclick=()=>{
+    if(!button.classList.contains("active")){
+      const section=row.closest(".section");
+      const limits={"section-weapon":5,"section-arm":6,"section-accessory":4,"section-head":4};
+      let limit=Infinity;
+      for(const cls in limits){if(section.classList.contains(cls)){limit=limits[cls];break;}}
+      if(section.querySelectorAll(".row .check.active").length>=limit)return;
+    }
+    button.classList.toggle("active");
+    button.textContent=button.classList.contains("active")?"✓":"○";
+    updateTotal();
+  };
+});
+document.getElementById("reset").onclick=()=>{
+  armorItems.forEach(item=>item.querySelector(".count").textContent="0");
+  rows.forEach(row=>{const b=row.querySelector(".check");b.classList.remove("active");b.textContent="○";});
+  updateTotal();
+};
+updateTotal();
+</script>
+</body>
+</html>
